@@ -1,0 +1,281 @@
+
+    :root {
+        --bg: #f2f5f8;
+        --pr: #6299ec;
+        --prl: #6299ecb0;
+        --prd: #3679dd;
+        --prtext: white;
+        --mut: #5b6b7a;
+        --card: #fff;
+        --line: #dbe2e8;
+        --ac: #0e8a5f;
+        --acfg: #fff;
+        --dn: #c8372d;
+        box-sizing: border-box;
+    }
+
+    * {
+      box-sizing: border-box;
+        transition: 0.2s;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111827;
+      background: #b9d1f5;     
+    }
+
+    h1, h2 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(109, 40, 217, 0.12);
+      display: flex;
+      flex-direction: column;
+      margin: 30px 15px;
+    }
+
+    /* ---------- Left (purple) side ---------- */
+    .info {
+      padding: 35px 30px;
+      color: #ffffff;
+      background: var(--prd);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      font-size: 13px;
+    }
+
+    .info h1 {
+      margin-top: 25px;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .info p {
+      color: #ddd6fe;
+      line-height: 1.6;
+    }
+
+    .perks {
+      list-style: none;
+      margin: 30px 0 0;
+      padding: 0;
+    }
+
+    .perks li {
+      margin-bottom: 15px;
+      color: #ddd6fe;
+      font-size: 14px;
+    }
+
+    .perks strong {
+      display: block;
+      color: #ffffff;
+    }
+
+    /* ---------- Right (form) side ---------- */
+    .form-side {
+      padding: 35px 30px;
+    }
+
+    .form-side p {
+      margin: 0 0 25px;
+      color: #6b7280;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Style all the form boxes the same way */
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    textarea {
+      height: 130px;
+      resize: vertical;
+    }
+
+    /* Purple glow when a box is clicked */
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--pr);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+    }
+
+    /* Red border on a box the browser says is wrong (after the user types in it) */
+    input:user-invalid,
+    select:user-invalid,
+    textarea:user-invalid {
+      border-color: #ef4444;
+    }
+
+    .counter {
+      margin: -12px 0 18px;
+      text-align: right;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .agree {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .agree input {
+      margin-top: 3px;
+    }
+
+    .agree label {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: var(--prd);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover, button:active {
+      scale: 105%;
+    }
+
+    /* ---------- Success message (hidden until the form is sent) ---------- */
+    .success {
+      display: none;
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    .success .tick {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: #ede9fe;
+      color: var(--pr);
+      font-size: 34px;
+      line-height: 70px;
+    }
+
+    .success p {
+      margin-bottom: 25px;
+    }
+
+    .success button {
+      width: auto;
+      padding: 12px 24px;
+    }
+
+    /* ---------- Two columns on bigger screens ---------- */
+    @media (min-width: 768px) {
+      .card {
+        flex-direction: row;
+      }
+
+      .info {
+        flex: 5;
+        padding: 50px 40px;
+      }
+
+      .form-side {
+        flex: 7;
+        padding: 50px 45px;
+      }
+
+      /* Puts first name and last name side by side */
+      .name-row {
+        display: flex;
+        gap: 18px;
+      }
+
+      .name-row div {
+        flex: 1;
+      }
+    }
+
+    .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #d3dbd8;
+  font-size: 0.8rem;
+  position: sticky;
+  top: 0;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 7.5em;
+  scale: 1.55;
+}
+
+.logo > img {
+  aspect-ratio: 16/9;
+  width: 100%;
+    height: auto;
+}
+
+.site-header nav a {
+  margin-left: 18px;
+  color: #5b6b73;
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  color: var(--pr);
+}
+
