@@ -234,7 +234,7 @@ function load_article_page() {
 }
 
 function get_article_layout(image, title, category, intro, content, view_count) {
-    return ` \n\n      <a class="back" href="news.html">← Back to all articles</a>\n\n      <h1>${title}</h1>\n      <p class="date">28 Sep 2026 &bull; ${view_count} views <span class="category">${category}</span>\n      </p>\n\n      <img class="article-image" src="${image}" alt="Chart showing a position-sizing example">\n\n      \x3C!-- Write the article text here. Use <p> for paragraphs and <h2> for sub-headings. -->\n  <div class="article-body">${intro}</div> <br> <br>   <div class="article-body">${content}<p class="date">\n     <br> <br>   <div class="article-body date">  Risk warning: trading foreign exchange carries a high level of risk. This article is\n          for education only and is not financial advice</div>.\n        </p>\n\n      </div>\n\n\n`
+    return ` \n\n      <a class="back" href="articles.html">← Back to all articles</a>\n\n      <h1>${title}</h1>\n      <p class="date">28 Sep 2026 &bull; ${view_count} views <span class="category">${category}</span>\n      </p>\n\n      <img class="article-image" src="${image}" alt="Chart showing a position-sizing example">\n\n      \x3C!-- Write the article text here. Use <p> for paragraphs and <h2> for sub-headings. -->\n  <div class="article-body">${intro}</div> <br> <br>   <div class="article-body">${content}<p class="date">\n     <br> <br>   <div class="article-body date">  Risk warning: trading foreign exchange carries a high level of risk. This article is\n          for education only and is not financial advice</div>.\n        </p>\n\n      </div>\n\n\n`
 }
 
 function sortNumArray(numArray) {
