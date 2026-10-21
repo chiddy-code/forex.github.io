@@ -4,7 +4,7 @@ const draft_articles = articles[1][1]
 
 
 async function loadJSON(file) {
-    const res = await fetch(`${file}`)
+    const res = await fetch(`./${file}`)
     const data = await res.json()
     return Object.entries(data)
 }
