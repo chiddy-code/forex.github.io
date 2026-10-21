@@ -60,7 +60,7 @@ function get_admin_articles() {
         published_article.id = published_index
         let mn = document.createElement('a')
         mn.target = "_blank"
-        mn.href = `http://127.0.0.1:3000/article.html?id=${article.id}`
+        mn.href = `https://github.com/chiddy-code/forex.github.io/article.html?id=${article.id}`
         mn.style.color = "white"
         mn.style.textDecoration = "none"
         mn.innerHTML = "Read"
