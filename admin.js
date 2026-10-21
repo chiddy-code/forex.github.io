@@ -11,7 +11,7 @@ let social_links = {
 }
 
 async function loadJSON(file) {
-    const res = await fetch(`./${file}`)
+    const res = await fetch(`${file}`)
     const data = await res.json()
     return Object.entries(data)
 }
@@ -19,9 +19,6 @@ async function loadJSON(file) {
 const articles = await loadJSON("articles.json")
 const published_articles = articles[0][1]
 const draft_articles = articles[1][1]
-const inbox = await loadJSON("inbox.json")
-const inbox_messages = inbox[0][1]
-const unread_messages = inbox[1][1]
 
 
 function get_social_checks(container) {
