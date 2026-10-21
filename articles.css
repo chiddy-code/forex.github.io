@@ -211,7 +211,7 @@ img {
   padding-left: 0px;
 }
 
-#forex:checked~.tabs label[for="forex"],
+#trading:checked~.tabs label[for="trading"],
 #syn-indices:checked~.tabs label[for="syn-indices"] {
   background: var(--prd);
   border-color: var(--pr);
@@ -240,7 +240,7 @@ input {
 }
 
 /* ...and the one matching the checked radio is shown */
-#forex:checked~.container #forex,
+#trading:checked~.container #trading,
 #syn-indices:checked~.container #synthetic-indices{
   display: block;
 }
