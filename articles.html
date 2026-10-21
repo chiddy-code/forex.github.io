@@ -9,12 +9,12 @@
 
 </head>
 
-<body onload="get_articles('.list')">
+<body id="articles">
 
   <!-- ===== HEADER ===== -->
-   <header class="site-header">
+  <header class="site-header">
     <div class="container">
-      <a class="logo" href="index.html"><img src="logo-wide.png" ></a>
+      <a class="logo" href="bio-page.html"><img src="logo-wide.png"></a>
       <nav>
         <a href="articles.html">Articles</a>
         <a href="inquiry-form.html">Contact</a>
@@ -22,19 +22,21 @@
     </div>
   </header>
 
+  <!-- ===== TAB SWITCHES =====
+         The radio buttons and the labels must stay in this order, before the panels. -->
+  <input class="tab-radio" type="radio" name="tabs" id="forex">
+  <input class="tab-radio" type="radio" name="tabs" id="syn-indices" checked>
+
+  <div class="tabs">
+    <label for="forex">Forex</label>
+    <label for="syn-indices">Synthetic Indices</label>
+  </div>
+
+
   <main class="container">
 
-    <!-- ===== LIST OF ARTICLES (the home view) =====
-         Each card links to an article below using its id, e.g. href="#article-1" -->
-    <div class="list">
-      <div class="page-title">
-        <h1>Latest articles</h1>
-        <p>Market analysis, strategies and trading education.</p>
-      </div>
-
-    </div>
-
-
+    <div class="panel" id="forex"></div>
+    <div class="panel" id="synthetic-indices"></div>
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -44,7 +46,8 @@
     </div>
   </footer>
 
-  <script src="data.js"></script>
+  <script src="data.js" type="module"></script>
+  <script type="module" src="articles.js"></script>
 </body>
 
 </html>

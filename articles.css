@@ -79,16 +79,17 @@ img {
   scale: 1.55;
 }
 
-.logo > img {
+.logo>img {
   aspect-ratio: 16/9;
   width: 100%;
-    height: auto;
+  height: auto;
 }
 
 .site-header nav a {
   margin-left: 18px;
-  color: #5b6b73;
-  text-decoration: none;
+  color: #01141d;
+    text-decoration: none;
+    font-size: 1.35em;
 }
 
 .site-header nav a:hover {
@@ -209,6 +210,41 @@ img {
 .more ul {
   padding-left: 0px;
 }
+
+#forex:checked~.tabs label[for="forex"],
+#syn-indices:checked~.tabs label[for="syn-indices"] {
+  background: var(--prd);
+  border-color: var(--pr);
+  color: #ffffff;
+}
+
+input {
+  display: none;
+}
+
+/* All panels start hidden... */
+.panel {
+  display: none;
+  padding-bottom: 40px;
+}
+
+.tabs > * {
+  padding: 0.5em;
+  border-radius: 0.75em;
+  margin: 0.75em 0;
+  border: 1px solid var(--prd);
+}
+
+.tabs {
+  margin: 1.5em;
+}
+
+/* ...and the one matching the checked radio is shown */
+#forex:checked~.container #forex,
+#syn-indices:checked~.container #synthetic-indices{
+  display: block;
+}
+
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -395,6 +431,6 @@ img {
   }
 
   .article-img {
-min-width: 20em;
-}
+    min-width: 20em;
+  }
 }

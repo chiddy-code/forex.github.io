@@ -10,12 +10,12 @@
   </style>
 </head>
 
-<body onload="load_article_page(); get_articles('.more')">
+<body id="article">
 
   <!-- ===== HEADER (same on every page) ===== -->
-  <header class="site-header">
+   <header class="site-header">
     <div class="container">
-      <a class="logo" href="index.html">Forex Insights</a>
+      <a class="logo" href="bio-page.html"><img src="logo-wide.png" ></a>
       <nav>
         <a href="articles.html">Articles</a>
         <a href="inquiry-form.html">Contact</a>
@@ -96,7 +96,8 @@
     </div>
   </footer>
 
-  <script src="data.js"></script>
+  <script src="data.js" type="module"></script>
+  <script type="module" src="articles.js"></script>
 
 </body>
 
