@@ -1,10 +1,6 @@
 const articles = await loadJSON("articles.json")
 const published_articles = articles[0][1]
 const draft_articles = articles[1][1]
-const inbox = await loadJSON("inbox.json")
-const inbox_messages = inbox[0][1]
-const unread_messages = inbox[1][1]
-
 
 async function loadJSON(file) {
     const res = await fetch(`./${file}`)
@@ -24,7 +20,7 @@ function get_articles(articles_container) {
             z.children[1].removeChild(z.children[1].children[5])
             z.children[1].removeChild(z.children[1].children[1])
             let mn = document.createElement('a')
-            mn.href = `http://127.0.0.1:3000/article.html#${article.id}`
+            mn.href = `/article.html#${article.id}`
             mn.innerHTML = "Read this article >"
             z.children[1].appendChild(mn)
             n.appendChild(z)
@@ -44,7 +40,7 @@ function get_genre_articles(articles_container, genre_focused = true) {
                 z.children[1].removeChild(z.children[1].children[5])
                 z.children[1].removeChild(z.children[1].children[1])
                 let mn = document.createElement('a')
-                mn.href = `http://127.0.0.1:3000/article.html#${article.id}`
+                mn.href = `article.html#${article.id}`
                 mn.innerHTML = "Read this article >"
                 z.children[1].appendChild(mn)
                 e.appendChild(z)
@@ -83,7 +79,7 @@ function get_latest_articles(articles_container = "") {
                 n.children[1].removeChild(n.children[1].children[5])
                 n.children[1].removeChild(n.children[1].children[1])
                 let mn = document.createElement('a')
-                mn.href = `http://127.0.0.1:3000/article.html#${article.id}`
+                mn.href = `article.html#${article.id}`
                  mn.innerHTML = "Read this article >"
                 n.id = article_index
                 n.children[1].appendChild(mn)
