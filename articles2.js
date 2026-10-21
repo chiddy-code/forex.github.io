@@ -41,7 +41,7 @@ function get_genre_articles(articles_container, genre_focused = true) {
                 z.children[1].removeChild(z.children[1].children[5])
                 z.children[1].removeChild(z.children[1].children[1])
                 let mn = document.createElement('a')
-                mn.href = `http://127.0.0.1:3000/article.html?id=${article.id}`
+                mn.href = `https://github.com/chiddy-code/forex.github.io/article.html?id=${article.id}`
                 mn.innerHTML = "Read this article >"
                 z.children[1].appendChild(mn)
                 e.appendChild(z)
@@ -84,7 +84,7 @@ function get_latest_articles(articles_container = "") {
                 let link_id = raw_id_split[1]
                 let article_index = raw_id_split[0].replace("#", "")
                 let mn = document.createElement('a')
-                mn.href = `http://127.0.0.1:3000/article.html?id=${link_id}`
+                mn.href = `https://github.com/chiddy-code/forex.github.io/article.html?id=${link_id}`
                  mn.innerHTML = "Read this article >"
                 n.id = article_index
                 n.children[1].appendChild(mn)
