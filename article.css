@@ -79,16 +79,17 @@ img {
   scale: 1.55;
 }
 
-.logo > img {
+.logo>img {
   aspect-ratio: 16/9;
   width: 100%;
-    height: auto;
+  height: auto;
 }
 
 .site-header nav a {
   margin-left: 18px;
-  color: #5b6b73;
+  color: #01141d;
   text-decoration: none;
+  font-size: 1.35em;
 }
 
 .site-header nav a:hover {
@@ -104,7 +105,7 @@ img {
   color: var(--prd);
   font-size: 13px;
   font-weight: bold;
-  margin:0.4em !important;
+  margin: 0.4em !important;
 }
 
 .date {
@@ -334,7 +335,7 @@ img {
 
   .article {
     margin: 0 auto;
-    
+
   }
 
 }
