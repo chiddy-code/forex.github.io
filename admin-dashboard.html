@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard - Juvir Trades</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="m.css">
+  <link rel="stylesheet" href="article.css">
+
+</head>
+
+<body id="admin">
+
+  <div class="popup-screen" style="display: none;">
+    <div class="popup-back" onclick="close_popup_from_back(this)"></div>
+    <div class="popup-content">
+      <div class="inside">
+        <div class="form-top">
+          <div class="form-title">Edit article</div> <button class="button"
+            onclick="close_popup_from_btn(this)">Close</button>
+        </div>
+        <div>
+          <span style="font-size: small; margin:1em 0;">' * ' marks compulsory fields</span>
+          <br><br>
+          <label class="field">Title *</label>
+          <textarea id="new-title" name="title" style="height: 6em;" required></textarea>
+
+          <label class="field" for="new-category">Category *</label>
+          <select id="new-category" name="category">
+            <option value="Forex Strategy">Forex Strategy</option>
+            <option value="Market Analysis">Market Analysis</option>
+            <option value="Trading Education">Trading Education</option>
+            <option value="Trade Ideas">Trade Ideas</option>
+            <option value="News">News</option>
+          </select>
+
+          <span style="font-size: small; margin:1em 0;"> - Leaving 'Article image link' blank will publish this article
+            without picture</span>
+          <br><br>
+
+          <label class="field" for="new-pic">Article image link </label>
+          <textarea id="new-pic" name="pic" style="height: 6em; min-height: 6em;"></textarea>
+
+          <div style="display: flex; align-items: center;padding-bottom: 1em;">
+            <input type="checkbox" id="text-formatting">
+            <span style="font-size: 0.8em; padding-left: 0.5em;">Advanced Text Formatting</span>
+          </div>
+
+          <label class="field" for="new-intro">Article Intro *</label>
+          <textarea id="new-intro" name="intro" value="uu" required></textarea>
+
+          <label class="field" for="new-body">Article Text *</label>
+          <textarea id="new-body" name="body" required></textarea>
+
+          <button class="button" type="submit" onclick="publish(this)">Save</button>
+          <button class="button" style="background-color:#787978" onclick="Draft(this)">Draft</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <div class="container">
+      <h1>Juvir Trades Admin</h1>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- ===== TAB SWITCHES =====
+         The radio buttons and the labels must stay in this order, before the panels. -->
+    <input class="tab-radio" type="radio" name="tabs" id="tab-articles">
+    <input class="tab-radio" type="radio" name="tabs" id="tab-progress" checked>
+    <input class="tab-radio" type="radio" name="tabs" id="tab-inbox">
+    <input class="tab-radio" type="radio" name="tabs" id="tab-settings">
+
+    <div class="tabs">
+      <label for="tab-articles">Articles</label>
+      <label for="tab-progress">Site Progress</label>
+      <label for="tab-inbox">Inbox</label>
+      <label for="tab-settings">Settings</label>
+    </div>
+
+    <div class="panels">
+
+      <!-- ===== TAB 1: ARTICLES ===== -->
+      <div class="panel" id="panel-articles">
+
+        <!-- New article form (click to open) -->
+        <details style="margin-top:0; margin-bottom:15px;">
+          <summary>+ New article</summary>
+        </details>
+
+
+        <div class="article-holder">
+          <!-- Article 1 --
+          <div class="box">
+            <div class="article-img"><img src="op.jpg" alt=""></div>
+            <div class="article-content-display">
+              <strong>How I size every trade before I look at regex coorpot iouiuo ygiuyuy uyoiuo ouio oiiopi oiuioio
+                oiuiuuioui</strong> <span class="badge">&check; </span> <span class="badge">Strategy</span>
+              <div class="small"><span>1 Oct 2026</span> &bull; <span>2:54PM</span> &bull; <span>0 views</span></div>
+              <p style="margin: 1em 0;" class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                temporibus exercit ationem vel quaerat excepturi eum, inventore ipun hi hoih hoh ohpio p iopii
+                opiiopioiioi ioip ppopi io
+                oihugyippttccrcr pppcgvp pcyrrrrrr toty</p>
+              <div class="article-functions">
+                <button class="button" onclick="open_edit_popup(this)">Edit</button>
+                <button class="button">Backlink</button>
+                <button class="button" style="background-color: red;">Delete</button>
+              </div>
+            </div>
+
+          </div>-->
+        </div>
+      </div>
+
+      <!-- ===== TAB 2: SITE PROGRESS ===== -->
+      <div class="panel" id="panel-progress">
+
+        <div class="stats">
+          <div class="stat publish"><strong></strong>Published</div>
+          <div class="stat drafts"><strong></strong>Drafts</div>
+          <div class="stat views"><strong></strong>Total views</div>
+          <div class="stat messages"><strong></strong>Unread messages</div>
+        </div>
+
+        <div class="box most-viewed">
+          <h3>Most viewed article</h3>
+          <p></p>
+        </div>
+
+
+      </div>
+
+      <!-- ===== TAB 3: INBOX ===== -->
+      <div class="panel" id="panel-inbox">
+
+        <!-- Unread message (has the green left edge) -->
+        <div class="message-box">
+          <strong class="sender">Ada Okonkwo</strong>
+          <div class="details"><span class="small email"> ada@example.com</span> <span class="small">&bull;</span> <span
+              class="small date">2 Oct 2026</span></div>
+          <p class="message">Hi, do you offer one-on-one mentorship?</p>
+
+          <div class="message-functions">
+            <button class="button" style="background-color: rgb(218, 63, 63);">Delete</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ===== TAB 4: SETTINGS ===== -->
+      <div class="panel" id="panel-settings">
+        <div class="box">
+          <h2>Site settings</h2>
+
+          <form action="#" method="post">
+            <label class="field" for="s-title">Site title</label>
+            <input type="text" id="s-title" name="title" value="Forex Insights">
+
+            <label class="field" for="s-tagline">Bio Tagline</label>
+            <input type="text" id="s-tagline" name="tagline" value="Market analysis, strategies and trading education">
+
+            <label class="field" for="s-email">Contact email</label>
+            <input type="email" id="s-email" name="email" placeholder="you@example.com">
+
+            <label class="field" for="s-goal">Articles to publish each month (goal)</label>
+            <input type="number" id="s-goal" name="goal" min="1" value="4">
+
+            <h3>Social media handles</h3>
+
+            <div class="social-checks">
+              <!-- <div class="social-checkbox">
+                <input type="checkbox" name="X (Twitter)" id="Social" checked>X (Twitter)
+              </div>
+
+              <div class="social-checkbox">
+                <input type="checkbox" name="Facebook" id="Social" checked>Facebook
+              </div>
+
+              <div class="social-checkbox">
+                <input type="checkbox" name="Instagram" id="Social">Instagram
+              </div>
+
+              <div class="social-checkbox">
+                <input type="checkbox" name="Youtube" id="Social" checked>Youtube
+              </div>
+
+              <div class="social-checkbox">
+                <input type="checkbox" name="Threads" id="Social" checked>Threads
+              </div>
+
+              <div class="social-checkbox">
+                <input type="checkbox" name="Telegram" id="Social" checked>Telegram
+              </div>
+
+              <div class="social-checkbox">
+                <input type="checkbox" name="Whatsapp" id="Social" checked>Whatsapp
+              </div>
+
+              <div class="social-checkbox">
+                <input type="checkbox" name="TikTok" id="Social" checked>TikTok
+              </div> 
+                          <label class="field" for="s-x">X (Twitter)</label>
+            <input type="text" id="s-x" name="x" placeholder="Type profile link / handle" value="o">
+-->
+
+            </div>
+
+
+            <div class="social-inputs">
+
+            </div>
+
+
+            <button class="button" type="submit">Save settings</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="admin.js" type="module"></script>
+  <script src="data.js" type="module"></script>
+  <script>
+
+    function replaceAll(String, from, to) {
+      let b = String
+      const ni = String.length
+      for (let index = 0; index < ni; index++) {
+        b = b.replace(from, to)
+      }
+      return b
+    }
+
+
+    function article_convert(textarea_val) {
+      let con = ""
+
+      if (textarea_val.includes(" @") && textarea_val.includes("@ ")) {
+        let wordSep = textarea_val.split(" ")
+        let wordChange = [""]
+
+        for (i = 0; i < wordSep.length; i++) {
+          let result = ""
+
+          if (wordSep[i].startsWith(" @") && wordSep[i].endsWith("@ ")) {
+            let simple_word = wordSep[i].replace(" @", "").replace("@ ", "")
+
+            let link_build = simple_word.split("=")
+            let link = `<a href="${link_build[1].trim()}">${link_build[0].trim()}</a>`
+            result = link
+            wordChange.push(result)
+          } else {
+            result = wordSep[i]
+            wordChange.push(result)
+          }
+        }
+        con = wordChange.join(" ")
+      } else {
+        con = textarea_val
+      }
+
+      if (con.includes(" $") && con.includes("$ ")) {
+        let wordSep = con.split(" ")
+        let wordChange = [""]
+
+        for (i = 0; i < wordSep.length; i++) {
+          let result = ""
+
+          if (wordSep[i].startsWith(" $") && wordSep[i].endsWith("$ ")) {
+            let simple_word = wordSep[i].replace(" $", "").replace("$ ", "")
+
+            let img_build = simple_word.split("=")
+            let link = `<div class="article-img"><img src="${img_build[1]}" alt="${img_build[0]}"></div>`
+            result = link
+            wordChange.push(result)
+          }
+          else {
+            result = wordSep[i]
+            wordChange.push(result)
+          }
+        }
+        con = wordChange.join(" ")
+      }
+
+      if (con.includes('\n')) {
+        con = replaceAll(con, "\n", "<br>")
+      }
+
+      if (con.includes(" -") && con.includes("- ")) {
+        con = replaceAll(con, " -", "<blockquote>")
+        con = replaceAll(con, "- ", "</blockquote>")
+      }
+
+      if (con.includes(" *") && con.includes("* ")) {
+        con = replaceAll(con, " *", "<strong>")
+        con = replaceAll(con, "* ", "</strong>")
+      }
+
+      if (con.includes(" _") && con.includes("_ ")) {
+        con = replaceAll(con, " _", "<i>")
+        con = replaceAll(con, "_ ", "</i>")
+      }
+      return con
+    }
+
+    function get_preview(o) {
+      let b = document.querySelector('.form-edit-preview')
+      let title = o.children[4].value
+      let category = o.children[6].value
+      let img = o.children[11].value
+      let intro = o.children[14].value
+      let content = o.children[16].value;
+      let footnote = o.children[18].value
+      if (o.children[12].children[0].checked) {
+        content = article_convert(o.children[16].value)
+      }
+      b.innerHTML = get_article_demo_layout(img, title, category, intro, content, footnote)
+    }
+
+    let n = new Date().toString()
+    let time_split = n.split(" ")
+    let month = time_split[1]
+    let date = time_split[2]
+    let year = time_split[3]
+    const time_format = `${month} ${date} ${year}`
+
+    function get_article_demo_layout(image, title, category, intro, content, footnote, view_count = "0") {
+      let img;
+      if (image.trim() == "") {
+        img = ""
+      } else {
+        img = `<img class="article-image" src="${image}" alt="Chart showing a position-sizing example"> `
+      }
+
+      return `<h1>${title}</h1>\n      <p class="date">${time_format} &bull; ${view_count} views <span class="category">${category}</span>\n      </p>\n\n      ${img}\n\n      \x3C!-- Write the article text here. Use <p> for paragraphs and <h2> for sub-headings. -->\n  <div class="article-body">${intro}</div> <br> <br>   <div class="article-body">${content}<p class="date">\n     <br> <br>   <div class="article-body date">${footnote}</div>.\n        </p>\n\n      </div>\n\n\n`
+    }
+
+    function close_popup_from_back(parent) {
+      document.body.removeChild(parent.parentElement)
+    }
+
+    function close_popup_from_btn(button) {
+      document.body.removeChild(button.parentElement.parentElement.parentElement.parentElement)
+    }
+
+   </script>
+</body>
+
+</html>

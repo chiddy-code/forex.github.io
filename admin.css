@@ -1,0 +1,433 @@
+    /* ---------- Basics ---------- */
+    :root {
+        --bg: #f2f5f8;
+        --pr: #6299ec;
+        --prl: #95bbf3b0;
+        --prd: #3679dd;
+        --prtext: white;
+        --mut: #5b6b7a;
+        --card: #fff;
+        --line: #dbe2e8;
+        --ac: #0e8a5f;
+        --acfg: #fff;
+        --dn: #c8372d;
+        box-sizing: border-box;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+        color: #12232e;
+        background: #f3f5f2;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: Georgia, "Times New Roman", serif;
+        margin: 0 0 10px;
+    }
+
+    p {
+        margin: 0 0 12px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    /* ---------- Top bar ---------- */
+    .topbar {
+        background: #12232e;
+        color: #ffffff;
+        padding: 14px 0;
+    }
+
+    .topbar h1 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    /* ---------- TABS (no JavaScript) ----------
+       Each tab is a hidden radio button. Clicking its label checks the radio,
+       and the CSS below shows the panel that matches the checked radio. */
+    .tab-radio {
+        display: none;
+    }
+
+    .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        background-color: #f3f5f2;
+    }
+
+    .tabs label {
+        padding: 0.35em 0.65em;
+        border: 1px solid #d3dbd8;
+        border-radius: 8px;
+        background: #ffffff;
+        cursor: pointer;
+        font-size: 0.9em;
+    }
+
+    /* Highlight the label of the checked tab */
+    #tab-articles:checked~.tabs label[for="tab-articles"],
+    #tab-progress:checked~.tabs label[for="tab-progress"],
+    #tab-inbox:checked~.tabs label[for="tab-inbox"],
+    #tab-settings:checked~.tabs label[for="tab-settings"] {
+        background: var(--prd);
+        border-color: var(--pr);
+        color: #ffffff;
+    }
+
+    /* All panels start hidden... */
+    .panel {
+        display: none;
+        padding-bottom: 40px;
+    }
+
+    /* ...and the one matching the checked radio is shown */
+    #tab-articles:checked~.panels #panel-articles,
+    #tab-progress:checked~.panels #panel-progress,
+    #tab-inbox:checked~.panels #panel-inbox,
+    #tab-settings:checked~.panels #panel-settings {
+        display: block;
+    }
+
+    /* ---------- Boxes, forms and buttons ---------- */
+    .box {
+        padding: 18px;
+        margin-bottom: 15px;
+        background: #ffffff;
+        border: 1px solid #d3dbd8;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: clip;
+    }
+
+    .article-functions {
+        display: flex;
+    }
+
+    @media (min-width: 700px) {
+        #panel-articles>.box {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .popup-screen {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        top: 0;
+        z-index: 9;
+    }
+
+    .popup-back {
+        width: 100%;
+        height: 100%;
+        background-color: #00000060;
+        position: absolute;
+        z-index: 3;
+    }
+
+    .article-functions>.button {
+        margin: 0 0.25em;
+    }
+
+    .popup-content {
+        z-index: 4;
+        position: relative;
+    }
+
+    label.field {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        border: 1px solid #d3dbd8;
+        border-radius: 8px;
+        background: #ffffff;
+    }
+
+    textarea {
+        height: 140px;
+        resize: vertical;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        background: var(--prd);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+        margin: 0 1em;
+    }
+
+    .button.grey {
+        background: #e5e9e7;
+        color: #12232e;
+    }
+
+    .button.danger {
+        background: #c2452d;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 2px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        background: #dceee8;
+        color: var(--prd);
+        margin: 1em 0;
+    }
+
+    .badge.draft {
+        background: #f4e9c8;
+        color: #d6a401;
+    }
+
+    .small {
+        color: #5b6b73;
+        font-size: 14px;
+    }
+
+    /* ---------- Expandable sections (<details>) ---------- */
+    details {
+        margin-top: 12px;
+    }
+
+    .inside {
+        background: #f9faf9;
+        border-radius: 1pc;
+        height: 70vh;
+        width: 85vw;
+        max-width: 37em;
+        border: 1px solid #d3dbd8;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inside>.form-top {
+        text-align: center;
+        padding: 1em 0;
+        border-radius: 1pc;
+        color: var(--pr);
+        font-weight: bolder;
+        font-size: 1em;
+        position: sticky;
+        top: 0;
+        background: white;
+        display: flex;
+        align-items: center;
+    }
+
+    .inside>.form-top>.form-title {
+        flex: 1;
+    }
+
+    .inside>.form-top>button {
+        padding: 0.35em 1em !important;
+        margin: 0 1em;
+        font-size: 0.75em !important;
+    }
+
+    .inside>div+div {
+        padding: 0.75em 1.75em;
+        overflow-y: auto;
+
+    }
+
+    .inside>div+div {
+        padding: 0.75em 1.75em;
+        overflow-y: auto;
+
+    }
+
+    summary {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 8px;
+        background: #e5e9e7;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    summary.red {
+        background: #c2452d;
+        color: #ffffff;
+    }
+
+    details .inside {
+        margin-top: 12px;
+        padding: 15px;
+        border: 1px solid #d3dbd8;
+        border-radius: 8px;
+        background: #f9faf9;
+    }
+
+    /* ---------- Article rows ---------- */
+    .unread {
+        border-left: 5px solid var(--prd);
+    }
+
+    .article-img>img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 1em;
+        height: auto;
+        border-radius: 0.75pc 0.75pc 0 0;
+    }
+
+    .article-content-display>p {
+        margin: 1em 0;
+        max-height: 5em;
+        text-overflow: ellipsis;
+        overflow: clip;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        font-size: 0.9em;
+    }
+
+
+    .article-content-display {
+        flex: 1;
+    }
+
+    .article-content-display>strong {
+        max-height: 4em;
+        display: block;
+        line-height: 1.2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    @media (min-width: 700px) {
+        .article-holder {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+        }
+
+        .article-img {
+            margin-bottom: 1em;
+        }
+
+        .article-img>img {
+            margin-bottom: 0 !important;
+        }
+    }
+
+
+    /* ---------- Progress tab ---------- */
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+    .stat {
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid #d3dbd8;
+        border-radius: 10px;
+    }
+
+    .stat strong {
+        display: block;
+        font-family: Georgia, serif;
+        font-size: 30px;
+    }
+
+    .progress {
+        height: 14px;
+        background: #e5e9e7;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progress div {
+        height: 100%;
+        background: #0e7c66;
+    }
+
+    /* change the width % to change the bar */
+
+    .message-box {
+        background-color: white;
+        border-radius: 1pc;
+        padding: 1em;
+        margin: 1em 0;
+        max-width: fit-content;
+    }
+
+    .message-box>.sender {
+        display: block;
+    }
+
+    .message-box>.message {
+        font-size: 0.95em;
+    }
+
+    .message-box>.message-functions>* {
+        margin: 0.2em !important;
+        padding: 0.55em 0.75em !important;
+    }
+
+    .message-box>.panel-inbox {
+        overflow-y: auto;
+    }
+
+    .social-checkbox {
+        display: inline-flex;
+        font-size: 0.9em;
+        align-items: center;
+        padding: 0.25em;
+    }
+    /* change the height to change the bar */
