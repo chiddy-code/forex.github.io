@@ -82,20 +82,22 @@ a {
   text-decoration: none;
   display: flex;
   align-items: center;
-  width: 7.5em;
-  scale: 1.55;
+  width: calc(30em - 43vh);
 }
 
-.logo > img {
+.logo>img {
   aspect-ratio: 16/9;
   width: 100%;
-    height: auto;
+  height: auto;
+  scale: 1.35;
 }
 
 .site-header nav a {
   margin-left: 18px;
-  color: #5b6b73;
-  text-decoration: none;
+  color: #01141d;
+    text-decoration: none;
+    font-size: 1.35em;
+  font-weight: bolder;
 }
 
 .site-header nav a:hover {
