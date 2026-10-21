@@ -11,7 +11,7 @@ let social_links = {
 }
 
 async function loadJSON(file) {
-    const res = await fetch(`${file}`)
+    const res = await fetch(`./${file}`)
     const data = await res.json()
     return Object.entries(data)
 }
