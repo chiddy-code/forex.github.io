@@ -1,13 +1,10 @@
 const articles = await loadJSON("articles.json")
 export const published_articles = articles[0][1]
-export const draft_articles = articles[1][1]
-const inbox = await loadJSON("inbox.json")
-export const inbox_messages = inbox[0][1]
-export const unread_messages = inbox[1][1]
+export const draft_articles = articles[1][1]
 
 
 async function loadJSON(file) {
-    const res = await fetch(`./${file}`)
+    const res = await fetch(`${file}`)
     const data = await res.json()
     return Object.entries(data)
 }
