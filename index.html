@@ -9,7 +9,7 @@
 
 </head>
 
-<body onload="get_bio_social_links(); get_latest_articles('.latest-articles')">
+<body id="bio" onload="get_bio_social_links();">
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
     <symbol id="facebook" viewBox="0 0 24 24">
       <title>Facebook</title>
@@ -55,7 +55,7 @@
 
    <header class="site-header">
     <div class="container">
-      <a class="logo" href="#"><img src="logo-wide.png" ></a>
+      <a class="logo" href="bio-page.html"><img src="logo-wide.png" ></a>
       <nav>
         <a href="articles.html">Articles</a>
         <a href="inquiry-form.html">Contact</a>
@@ -100,13 +100,13 @@
       <div class="facts">
         <div class="fact"><span>Trading since</span><strong>2019</strong></div>
         <div class="fact"><span>Main Skill</span><strong>Forex</strong></div>
-        <div class="fact"><span>Other Trades</span><strong>Crypto</strong></div>
+        <div class="fact"><span>Other Trades</span><strong>Synthetic Indices</strong></div>
       </div>
     </div>
 
     <!-- ===== LATEST ARTICLE ===== -->
     <div class="section">
-      <h2>Latest articles</h2>
+      <h2>Articles</h2>
       <div class="latest-articles">
 
       </div>
@@ -130,9 +130,8 @@
     </div>
   </div>
 
-  <script src="data.js"></script>
-  <script src="admin.js"></script>
-
+  <script src="articles.js" type="module"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
