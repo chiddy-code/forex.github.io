@@ -1,7 +1,9 @@
 const articles = await loadJSON("articles.json")
 const published_articles = articles[0][1]
 const draft_articles = articles[1][1]
-
+const inbox = await loadJSON("inbox.json")
+const inbox_messages = inbox[0][1]
+const unread_messages = inbox[1][1]
 
 
 async function loadJSON(file) {
@@ -11,9 +13,10 @@ async function loadJSON(file) {
 }
 
 function get_articles(articles_container) {
+    let frag = window.location.hash
+    let id_check = true
+    let id = frag.slice(1)
     let n = document.querySelector(articles_container)
-    let url = new URLSearchParams(window.location.search)
-    let id = url.get('id')
     for (const article of published_articles) {
 
         if (id != article.id) {
@@ -21,7 +24,7 @@ function get_articles(articles_container) {
             z.children[1].removeChild(z.children[1].children[5])
             z.children[1].removeChild(z.children[1].children[1])
             let mn = document.createElement('a')
-            mn.href = `http://127.0.0.1:3000/article.html?id=${article.id}`
+            mn.href = `http://127.0.0.1:3000/article.html#${article.id}`
             mn.innerHTML = "Read this article >"
             z.children[1].appendChild(mn)
             n.appendChild(z)
@@ -41,7 +44,7 @@ function get_genre_articles(articles_container, genre_focused = true) {
                 z.children[1].removeChild(z.children[1].children[5])
                 z.children[1].removeChild(z.children[1].children[1])
                 let mn = document.createElement('a')
-                mn.href = `https://github.com/chiddy-code/forex.github.io/article.html?id=${article.id}`
+                mn.href = `http://127.0.0.1:3000/article.html#${article.id}`
                 mn.innerHTML = "Read this article >"
                 z.children[1].appendChild(mn)
                 e.appendChild(z)
@@ -79,12 +82,8 @@ function get_latest_articles(articles_container = "") {
                 let n = load_article(article.image, article.title, article.genre, article.Intro, article.view_count, article.timestamp)
                 n.children[1].removeChild(n.children[1].children[5])
                 n.children[1].removeChild(n.children[1].children[1])
-                let raw_id = article.id
-                let raw_id_split = raw_id.split("-")
-                let link_id = raw_id_split[1]
-                let article_index = raw_id_split[0].replace("#", "")
                 let mn = document.createElement('a')
-                mn.href = `https://github.com/chiddy-code/forex.github.io/article.html?id=${link_id}`
+                mn.href = `http://127.0.0.1:3000/article.html#${article.id}`
                  mn.innerHTML = "Read this article >"
                 n.id = article_index
                 n.children[1].appendChild(mn)
@@ -111,9 +110,9 @@ if (document.body.id == 'admin') {
 }
 
 function load_article_page() {
-    let url = new URLSearchParams(window.location.search)
-    let id_check = url.has('id')
-    let id = url.get('id')
+    let frag = window.location.hash
+    let id_check = true
+    let id = frag.slice(1)
     let m = document.querySelector('.article')
     if (id_check) {
         if (id == null || isNaN(Number(id))) {
